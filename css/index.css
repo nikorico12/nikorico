@@ -17,6 +17,54 @@
     margin-left: 20rem;
     padding: 1rem;
   }
+
+  /*Barra horizontal*/
+  .navhori {
+    width: 100%;
+    height: 7rem;
+    position: fixed;
+    background-color: var(--text-primary);
+  }
+
+  #hori {
+    flex-direction: row;
+  }
+
+  #toptext {
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    font-size: 2rem;
+    position:absolute;
+    right: 1.5rem;
+    top: .7rem;
+    display: flex;
+    align-items: normal;
+  }
+
+  #es {
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    font-size: 2rem;
+    position:absolute;
+    right: 8rem;
+    top: .7rem;
+    display: flex;
+    align-items: normal;
+  }
+  #en {
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    font-size: 2rem;
+    position:absolute;
+    right: 15rem;
+    top: .7rem;
+    display: flex;
+    align-items: normal;
+  }
+  /*Barra lateral*/
   .navbar {
     width: 20rem;
     height: 100vh;
@@ -29,8 +77,11 @@
     padding: 0;
     margin: 0;
     display:  flex;
-    flex-direction: column;
     align-items: center;
+  }
+
+  #nav {
+    flex-direction: column;
   }
 
   .nav-link {
@@ -64,4 +115,16 @@
 
   #contenido {
     font-size: 2rem;
+  }
+
+  .title {
+    margin-top: 8rem;
+    font-size: 4rem;
+  }
+
+  #pfp {
+    display: inline-block;
+    text-align: center;
+    height: 20rem;
+    padding-left: 40%;
   }
