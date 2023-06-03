@@ -24,11 +24,11 @@ header{
     padding: 0.9rem 0;
     top: 0;
     left: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ADD8E6;
 }
 
 header nav{
-    max-width: 1400px;
+    max-width: 95%;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
