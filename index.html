@@ -1,47 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html lang="es">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>Nikorico Home page</title>
+  <meta charset="utf-8">
+
+  <title>Nikorico</title>
+  <meta name="author" content="Nikorico">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+  <script defer src="../use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <img src="img/nikorico.png" alt="logo" class="logo">
-            <ul>
-                <li>
-                    <a href="https://nikorico.es">Home</a>
-                </li>
-                <li>
-                    <a href="https://dev.nikorico.es">Dev Blog</a>
-                </li>
-                
-                <!--<li class="hamburger">
-                    <a href="#">
-                        <div class="bar"></div>
-                    </a>
-                </li>-->
-            </ul>
-        </nav>
-    </header>
-<!--Main-->
-    <main>
-        <div class="vignette"></div>
-        <img src="img/Fondo.jpg" alt="" data-speedx="0.3" data-speedy="0.38" data-speedz="0" class="parallax bg-img">
-        <img src="img/fog.png" alt="" data-speedx="0.27" data-speedy="0.32" data-speedz="0" class="parallax fog-img">
-        <img src="img/fog2.png" alt="" data-speedx="0.24" data-speedy="0.28" data-speedz="0" class="parallax fog2-img">
-        <img src="img/Montaña 2.png" alt="" data-speedx="0.18" data-speedy="0.24" data-speedz="0" class="parallax mountain1-img">
-        <img src="img/Montaña 1.png" alt="" data-speedx="0.15" data-speedy="0.13" data-speedz="0" class="parallax mountain2-img">
-        <img src="img/Sombras.png" alt="" class="black-shadow">
-        <div class="text parallax" data-speedx="0.15" data-speedy="0.10">
-            <h2>Game Developer</h2>
-            <h1>Nikorico</h1>
+  <div id="site">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Menú</h2>
+      <ul>
+        <li><a href="#quien-soy">¿Quién soy?</a></li>
+        <li><a href="#proyectos-destacados">Proyectos destacados</a></li>
+        <li><a href="https://dev.nikorico.es">Blog</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <div class="content">
+      <header class="intro">
+        <h1 class="intro__hello">¡Hola!</h1>
+        <div class="intro__wrap">
+          <img class="intro__icon" src="images/Icon_Logo.png" alt="Brand Icon" />
+          <h2 class="intro__tagline">Soy
+            <span class="name">Nikorico</span>, también conocido como <b>David Cruz</b>, y tengo como hobby crear videojuegos.
+          </h2>
         </div>
-    </main>
-    <script src="js/app.js"></script>
+        <h3 class="intro__contact">¿Te interesa contactarme? Envía un mensaje a: 
+          <span>
+            <a href="mailto:davidcruztreball@gmail.com" target="_blank" class="highlight-link">davidcruztreball@gmail.com</a>
+          </span>
+        </h3>
+      </header>
+
+      <section id="quien-soy" class="section background" data-sr>
+        <div class="section__title">
+        ¿Quien soy?
+        <br>
+      </div>
+      <div class="section__content">
+        <p>Soy un estudiante recien salido de un grado superior de Sistemas y Redes informaticas en
+          <strong>Barcelona, España</strong>. He hecho varios trabajos relacionado con la informatica, pero todo el desarollo en videojuegos lo hago por hobby.
+        <p>Como un desarollador Indie, voy formandome constantemente de forma autodidactica, participando en Game Jams y disfrutando de todo el proceso.</p>
+        <p>
+          <strong>Si no estoy trabajando o programando</strong>, seguramente me encuentres disfrutando de mis otras aficiones como son el baloncesto, que practico casi a diario.
+		  O viendo los nuevos episiodios de mis animes favoritos. Me gusta leer libros y mangas. Y disfruto de tiempo de calidad con mi familia. </p>
+
+        <p>
+          Siempre estoy interesado en nuevos proyectos, a si que no tengas miedo en preguntarme por correo.
+		  Tengo un <strong>blog</strong> por si quieren saber más de mi.
+        </p>
+      </div>
+      </section>
+
+      <section id="proyectos-destacados" class="section featured-projects" data-sr>
+        <div class="section__title">Proyectos destacados</div>
+		<div class="section__content">
+			<a>In progess</a>
+		</div>
+		</div>
+      </section>
+
+      <button id="top-button" style="display: inline-block;">
+        <img src="#" alt=""> 
+      </button>
+    </div>
+  </div>
+  <script src="../cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../unpkg.com/scrollreveal%404.0.9/dist/scrollreveal.min.js"></script>
+  <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
