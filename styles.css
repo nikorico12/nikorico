@@ -1,0 +1,100 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.section {
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Alineación de secciones */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+}
+
+#logo-section {
+    background-color: #f0f0f0;
+}
+
+body.dark-mode #logo-section {
+    background-color: #333333;
+}
+
+.logo {
+    max-width: 80%;
+    height: auto;
+}
+
+#text-section {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+body.dark-mode #text-section {
+    background-color: #222222;
+}
+
+button#dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+body.dark-mode button#dark-mode-toggle {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+    .section {
+        padding: 10px;
+    }
+
+    .logo {
+        max-width: 90%;
+    }
+
+    #text-section {
+        padding: 15px;
+        font-size: 1.2em; /* Ajusta el tamaño de la fuente */
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+    .section {
+        padding: 5px;
+    }
+
+    .logo {
+        max-width: 100%;
+    }
+
+    #text-section {
+        padding: 10px;
+        font-size: 1em; /* Ajusta el tamaño de la fuente */
+    }
+}
