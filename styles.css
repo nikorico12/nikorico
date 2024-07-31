@@ -98,3 +98,12 @@ body.dark-mode button#dark-mode-toggle {
         font-size: 1em; /* Ajusta el tamaño de la fuente */
     }
 }
+
+p {
+    max-width: 600px;
+    word-wrap: break-word;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+
+}
