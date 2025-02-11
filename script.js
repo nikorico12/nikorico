@@ -1,56 +1,105 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Función para manejar el desplazamiento suave
-    const smoothScrollToSection = (targetSectionId) => {
-        const targetSection = document.getElementById(targetSectionId);
-        if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    };
+// Función para copiar email
+function copyEmail() {
+    const email = 'info@nikorico.es';
+    navigator.clipboard.writeText(email)
+}
 
-    // Agregar eventos de scroll
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach((section, index) => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                section.classList.add('active');
-            } else {
-                section.classList.remove('active');
-            }
+// Scroll suave a proyectos
+let lastScroll = 0;
+window.addEventListener('wheel', (e) => {
+    const currentScroll = window.scrollY;
+    
+    if(currentScroll === 0 && e.deltaY > 0) {
+        window.scrollTo({
+            top: document.getElementById('projects').offsetTop,
+            behavior: 'smooth'
         });
-    });
-
-    // Ejemplo de navegación entre secciones
-    document.querySelector('#logo-section').addEventListener('click', () => {
-        setTimeout(() => {
-            smoothScrollToSection('text-section');
-        }, 1000); // Ajusta el tiempo de retraso en milisegundos
-    });
-
-    // Modo oscuro
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const logo = document.querySelector('.logo');
-
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-
-        // Cambia el logo según el modo
-        if (document.body.classList.contains('dark-mode')) {
-            logo.src = 'nikorico-logo2_blanco.svg';
-        } else {
-            logo.src = 'nikorico-logo2.svg';
-        }
-    });
-
-    // Ajuste inicial del logo según el modo
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
-        logo.src = 'nikorico-logo2_blanco.svg';
     }
+    
+    lastScroll = currentScroll;
 });
+
+
+
+// Funciones de vista expandida
+function showExpandedView(projectId) {
+    const expandedView = document.getElementById('expandedView');
+    expandedView.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeExpandedView() {
+    document.getElementById('expandedView').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Fullscreen screenshots
+function openFullscreen(img) {
+    const overlay = document.querySelector('.fullscreen-overlay');
+    const fullscreenImg = overlay.querySelector('.fullscreen-image');
+    fullscreenImg.src = img.src;
+    overlay.style.display = 'flex';
+}
+
+function closeFullscreen() {
+    document.querySelector('.fullscreen-overlay').style.display = 'none';
+}
+
+// Cerrar al hacer click fuera
+window.onclick = function(event) {
+    const expandedView = document.getElementById('expandedView');
+    if (event.target === expandedView) {
+        closeExpandedView();
+    }
+    
+    const fullscreenOverlay = document.querySelector('.fullscreen-overlay');
+    if (event.target === fullscreenOverlay) {
+        closeFullscreen();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLanguage = localStorage.getItem("selectedLanguage") || "es";
+    changeLanguage(savedLanguage);
+});
+
+function changeLanguage(lang) {
+    localStorage.setItem("selectedLanguage", lang);
+    
+    document.querySelectorAll("[data-lang]").forEach(element => {
+        element.style.display = element.getAttribute("data-lang") === lang ? "block" : "none";
+    });
+
+    document.getElementById("btn-es").classList.toggle("active", lang === "es");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+// Manejar el envío del formulario
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const formData = new FormData(this);
+
+    // Enviar datos a un servidor (ejemplo con Formspree)
+    fetch('https://formspree.io/f/xzzdaeqe', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Mensaje enviado con éxito.');
+            this.reset(); // Limpiar el formulario
+        } else {
+            alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el mensaje.');
+    });
+});
+
+

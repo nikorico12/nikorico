@@ -3,33 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <metaname="description" content="Solo game developer, follow my journey or see how I succeed in this infamous world. 
-">
-    <title>Nikorico</title>
+    <title>NikoRico Games</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-    <div class="section" id="logo-section">
-      <a href="https://nikorico.itch.io/">
-        <img src="nikorico-logo2.svg" alt="Logo" class="logo">
-      </a>
+
+    <!-- Selector de idioma -->
+    <div class="language-switch">
+        <button id="btn-es" onclick="changeLanguage('es')" class="active">🇪🇸 Español</button>
+        <button id="btn-en" onclick="changeLanguage('en')">🇬🇧 English</button>
     </div>
-    <div class="section" id="text-section">
-        <h1>Nikorico games studio</h1>
-        <h2>Games made with love and passion.</h2>
-    </div>
-    <div class="section" id="text-section">
-      <h1>Games</h1>
-      <a href="https://nikorico.itch.io/aquamech"><img src="aquamech.png"></a>
-      <h3>Aquamech</h3>
-      <p>This game was made with Godot in 4 days for a Game Jam called Fishfest with the Theme: Fish.<br>
-You were once a human but you find yourself inside the fishtank of your neighbor, 
-but equipped with a nerf machine gun and a rocket launcher, 
-can you survive until someone finds you there?</p>
-<img src="Captura de pantalla 2024-04-05 194050.png">
-  </div>
-    <script src="script.js"></script>
+
+    <!-- Sección de Landing -->
+    <section class="landing">
+        <img src="images/nikorico-logo2_blanco.svg" alt="Logo" class="logo">
+        <div class="landing-links">
+            <a href="https://nikorico.itch.io/" target="_blank" class="itch-link">itch.io</a>
+            <button class="contact-btn" onclick="copyEmail()">info@nikorico.es</button>
+        </div>
+        <div class="scroll-indicator">▼</div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="projects">
+        <div class="container">
+            <h1 data-lang="es">Mis Proyectos</h1>
+            <h1 data-lang="en" style="display: none;">My Projects</h1>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title" data-lang="es">Aquamech</h3>
+                    <h3 class="project-title" data-lang="en" style="display: none;">Aquamech</h3>
+                    <img src="https://img.itch.zone/aW1hZ2UvMjYyNzcyOS8xNTY1NjU5Ni5wbmc=/original/vEgrcH.png" alt="Juego 1" class="project-image">
+                    <a href="https://nikorico.itch.io/aquamech" target="_blank" class="itch-link" data-lang="es">Ver en itch.io</a>
+                    <a href="https://nikorico.itch.io/aquamech" target="_blank" class="itch-link" data-lang="en" style="display: none;">See on itch.io</a>
+                    <a href="https://aquamech.nikorico.es" target="_blank" class="itch-link" data-lang="es">Ver más</a>
+                    <a href="https://aquamech.nikorico.es" target="_blank" class="itch-link" data-lang="en" style="display: none;">See more</a>
+                </div>
+                <!-- Aqui van el resto de proyectos-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact">
+        <div class="container">
+            <h1 data-lang="es">Contacto</h1>
+            <h1 data-lang="en" style="display: none;">Contact</h1>
+
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name" data-lang="es">Nombre:</label>
+                    <label for="name" data-lang="en" style="display: none;">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-lang="es">Correo electrónico:</label>
+                    <label for="email" data-lang="en" style="display: none;">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" data-lang="es">Mensaje:</label>
+                    <label for="message" data-lang="en" style="display: none;">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" data-lang="es">Enviar</button>
+                <button type="submit" data-lang="en" style="display: none;">Send</button>
+            </form>
+        </div>
+    </section>
+
 </body>
 </html>
